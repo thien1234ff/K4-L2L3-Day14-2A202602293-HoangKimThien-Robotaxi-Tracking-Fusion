@@ -4,27 +4,28 @@ Dữ liệu đối chiếu: 2A202602293_HoangKimThien.zip (chứa Datumaro 3D an
 
 Packet / slot / case / lượt: Lượt 1 / Core track J01 (Sequence VinFast 66 frame)
 Task / job: Task Day14 Hoang Kim Thien / Job J01
-Track CVAT / object được giao: Track 0 (label: vehicles) — Xe tải / xe thương mại lớn di chuyển ở làn bên trái xe ego (tọa độ Y từ +10.7 m đến +23.5 m), lưu thông ngược chiều với xe ego, lướt từ phía trước (X = +16.88 m ở Frame 0) qua ngang hông xe ego (X = +1.11 m ở Frame 5) rồi chạy lùi dần về phía sau xe ego (X = -47.74 m ở Frame 20).
-Phạm vi local frame / source frame: Local frame 0 đến 20 (tổng 21 frames) / Source frame từ 1772259100-099741459 đến 1772259104-099810362 (theo J01.csv)
+Track CVAT / object được giao: Track 0 (label: vehicles) — Xe tải / xe thương mại lớn di chuyển ở làn bên trái xe ego (tọa độ Y từ +10.7 m đến +33.6 m), lưu thông ngược chiều với xe ego, lướt từ phía trước (X = +16.88 m ở Frame 0) qua ngang hông xe ego (X = +1.11 m ở Frame 5) rồi chạy lùi dần về phía sau xe ego (X = -48.19 m ở Frame 20 đến X = -64.00 m ở Frame 25).
+Phạm vi local frame / source frame: Local frame 0 đến 25 (tổng 26 frames) / Source frame từ 1772259100-099741459 đến 1772259105-099798441 (theo J01.csv)
 Guideline / profile calibration đã đọc: private/calib-diagnostic.json (camera trước CAM_P_F, 1920x1536, sensor2ego LIDAR_TOP, ego2cam CAM_P_F)
 
 Frame fit và lý do: Frame 5 (kết hợp đối chiếu Frame 0 và Frame 12). Lý do: Tại Frame 5, xe di chuyển đến gần xe ego nhất (cự ly khoảng cách tối thiểu ~10.9 m, X = +1.11 m, Y = +10.73 m), chùm tia LiDAR dày đặc và phản xạ rõ nét toàn bộ hình khối thân xe, giúp xác định chuẩn chiều dài (L), chiều rộng (W) và chiều cao (H).
 L / W / H (m): L = 5.70 m / W = 2.24 m / H = 3.15 m (kích thước vật rắn tham chiếu chuẩn: L_drift = 0.0%, W_drift = 0.0%, H_drift = 1.59%).
-Keyframe quan trọng và lý do: 14 keyframe quan trọng (các mốc chính Frame 0, 5, 8, 12, 16):
+Keyframe quan trọng và lý do: 16 keyframe (Frame 0–12, 16, 21, 22; các mốc chính Frame 0, 5, 8, 12, 16, 21, 22):
 - Frame 0: Bắt đầu xuất hiện xe ở phía trước bên trái (X = +16.88 m, Y = +11.38 m, Z = +1.06 m).
 - Frame 1–4: Tinh chỉnh bám sát cụm điểm khi xe tiếp cận nhanh ở làn bên trái.
 - Frame 5: Xe lướt ngang hông xe ego (X = +1.11 m, Y = +10.73 m), cự ly gần nhất, bắt đầu vượt qua góc nhìn camera trước.
 - Frame 8: Xe đi ra phía sau xe ego (X = -8.70 m, Y = +11.76 m), duy trì hướng heading và tâm chuyển động.
 - Frame 12: Xe chếch nhẹ theo độ cong của làn đường (X = -22.19 m, Y = +13.96 m), giữ ổn định quỹ đạo.
 - Frame 16: Mốc giữ ổn định quỹ đạo khi xe ra xa (X = -35.30 m, Y = +17.78 m).
-Frame nội suy đã kiểm: Toàn bộ các frame nội suy giữa các mốc (Frame 13–15, 17–20) — cuboid di chuyển tịnh tiến mượt mà, bám khít cụm điểm LiDAR, không bị giật hay trôi tâm.
-Đoạn thưa / che khuất / dễ nhầm identity: Đoạn từ Frame 16 đến Frame 20, xe đi ra xa dần phía sau (cự ly từ 35 m đến 53.2 m), mật độ điểm LiDAR giảm mạnh chỉ còn vài chùm tia phản xạ ở góc đuôi/sườn xe. Áp dụng nghiêm ngặt nguyên tắc vật thể rắn (giữ nguyên kích thước tham chiếu 5.70 x 2.24 x 3.15 m), không co nhỏ box theo các cụm điểm thưa. Sau Frame 20 (cự ly > 53.2 m), xe vượt quá phạm vi theo dõi tin cậy của LiDAR nên kết thúc track.
+- Frame 21–22: Mốc bám đuổi khi xe ra rất xa phía sau (X = -51.42 m đến -54.61 m, Y = +25.41 m đến +27.31 m), duy trì orientation và tâm xe theo cụm điểm thưa.
+Frame nội suy đã kiểm: Toàn bộ các frame nội suy giữa các mốc (Fra-me 13–15, Frame 17–20, Frame 23–25) — cuboid di chuyển tịnh tiến mượt mà, bám khít cụm điểm LiDAR, không bị giật hay trôi tâm.
+Đoạn thưa / che khuất / dễ nhầm identity: Đoạn từ Frame 16 đến Frame 25, xe đi ra xa dần phía sau (cự ly từ 35 m đến 72.3 m), mật độ điểm LiDAR giảm mạnh chỉ còn vài chùm tia phản xạ ở góc đuôi/sườn xe. Áp dụng nghiêm ngặt nguyên tắc vật thể rắn (giữ nguyên kích thước tham chiếu 5.70 x 2.24 x 3.15 m), không co nhỏ box theo các cụm điểm thưa. Sau Frame 25 (cự ly > 72.3 m, X = -64.00 m, Y = +33.55 m), xe vượt quá phạm vi theo dõi tin cậy của LiDAR nên kết thúc track.
 
 Phát hiện temporal và frame/evidence: Chạy cvat3d_fusion.py qc trên dữ liệu default.json:
 - dimension_drift: Đạt chuẩn tuyệt đối 0 lỗi (L_drift = 0.0%, W_drift = 0.0%, H_drift = 1.59% < 5%). Toàn bộ sequence giữ nguyên kích thước vật thể rắn.
-- position_jump: Cảnh báo tâm nhảy 3.1 m - 3.4 m mỗi frame (Frame 1 đến 20). Đây là False Positive của toolkit do 2 xe chạy ngược chiều với vận tốc tương đối lớn (~33 m/s tương đương ~120 km/h), chuyển động đều tịnh tiến tự nhiên chứ không phải lỗi nhảy tâm ID switch.
-- fragmentation_suspect: Báo ID kết thúc ở Frame 20 ở cự ly 53.2 m; xác nhận là điểm kết thúc hợp lệ vì xe ra khỏi tầm quét hữu hiệu của cảm biến.
-Quyết định độc lập trước review: Giữ nguyên 1 track duy nhất (Track 0) cho xe tải này từ Frame 0 đến Frame 20. Cố định kích thước tham chiếu 5.70 x 2.24 x 3.15 m cho toàn bộ các frame.
+- position_jump: Cảnh báo tâm nhảy 3.1 m - 3.8 m mỗi frame (Frame 1 đến 25, tổng 25 cảnh báo). Đây là False Positive của toolkit do 2 xe chạy ngược chiều với vận tốc tương đối lớn (~33 m/s tương đương ~120 km/h), chuyển động đều tịnh tiến tự nhiên chứ không phải lỗi nhảy tâm ID switch.
+- fragmentation_suspect: Báo ID kết thúc ở Frame 25 ở cự ly 72.3 m; xác nhận là điểm kết thúc hợp lệ vì xe ra khỏi tầm quét hữu hiệu của cảm biến.
+Quyết định độc lập trước review: Giữ nguyên 1 track duy nhất (Track 0) cho xe tải này từ Frame 0 đến Frame 25 (tổng 26 frames). Cố định kích thước tham chiếu 5.70 x 2.24 x 3.15 m cho toàn bộ các frame.
 Phản hồi nhận được: Đánh giá cao việc giữ đúng kích thước vật thể rắn (L_drift = 0%, W_drift = 0%) và phân loại chính xác bản chất các cờ cảnh báo của script QC.
 Hành động sau review và lý do: Giữ nguyên toàn bộ cấu hình annotation đã thiết lập; không thay đổi kích thước hay vị trí vì các chỉ số hình học và temporal đã đạt chuẩn kỹ thuật của bài lab.
 
@@ -32,16 +33,16 @@ Ca bình thường Camera–LiDAR (frame/camera/quan sát):
 - Frame 0 / Camera trước CAM_P_F (image_1): Xe ở cự ly chiều sâu Z_cam = 15.6 m, tọa độ [X=16.88, Y=11.38, Z=1.06]. Phần đầu và sườn trước của cuboid 3D được chiếu vào góc mép trái của ảnh camera trước (status: partial, 2 góc rơi vào trong khung hình 1920x1536), khớp chính xác với hình ảnh đầu chiếc xe tải xuất hiện trong ảnh thực tế.
 Ca khó (frame/camera/quan sát 2D, 3D):
 - Frame 1 đến 4 / Camera trước CAM_P_F (image_1): Xe di chuyển ngang ở Y ~ 11 m, cự ly Z_cam từ 12.5 m xuống 3.0 m nhưng rơi hoàn toàn ra ngoài góc nhìn bên trái của camera trước (status: out_of_fov, 0/8 góc trong ảnh dù chiều sâu vẫn ở phía trước ego).
-- Frame 5 đến 20 / Camera trước CAM_P_F (image_1): Chiều sâu camera Z_cam âm (từ -0.1 m ở Frame 5 đến -49.2 m ở Frame 20), do xe đã chạy vượt qua vị trí đặt camera trước và lùi dần về phía sau xe ego. Kết quả: 0/8 góc nằm trong ảnh camera trước (out_of_fov).
+- Frame 5 đến 25 / Camera trước CAM_P_F (image_1): Chiều sâu camera Z_cam âm (từ -0.1 m ở Frame 5 đến -65.6 m ở Frame 25), do xe đã chạy vượt qua vị trí đặt camera trước và lùi dần về phía sau xe ego. Kết quả: 0/8 góc nằm trong ảnh camera trước (out_of_fov).
 Giả thuyết nguyên nhân / giới hạn kết luận: Giới hạn trường nhìn (Field-of-View - HFOV) của camera trước đơn lẻ CAM_P_F (khoảng 50-60 độ). Camera trước chỉ bao quát được góc phía trước thẳng; khi xe chạy sang làn bên cạnh và lùi về phía sau xe ego, xe lọt vào tầm nhìn của camera hông trái (image_0) và camera sau chứ không thể xuất hiện trên camera trước (image_1). Đây không phải lỗi gán nhãn 3D hay lỗi biến mất đối tượng.
 Hành động sửa / giữ / escalation và người nhận: Giữ nguyên cuboid 3D theo đúng dữ liệu phản xạ của chùm điểm LiDAR; ghi nhận trường hợp Discrepancy do giới hạn FOV của camera đơn lẻ; không cố tình kéo lệch cuboid 3D về phía trước để ép hiển thị trên ảnh camera trước.
 
-Đã Save và mở lại kiểm: Đã Save trên CVAT, tải lại trang kiểm tra toàn bộ 21 frame còn nguyên vẹn và kích thước chuẩn.
+Đã Save và mở lại kiểm: Đã Save trên CVAT, tải lại trang kiểm tra toàn bộ 26 frame (từ Frame 0 đến Frame 25) còn nguyên vẹn và kích thước chuẩn.
 Trạng thái job cuối / blocker: Đã chuyển sang completed trên CVAT / Không có blocker.
 
 TỔNG KẾT BỘ JOB
 Job đã bắt đầu: Job J01 (66 frame VinFast sequence)
-Job đã Save/completed: 1 job (J01 hoàn thành track lõi mục tiêu từ frame 0 đến 20)
+Job đã Save/completed: 1 job (J01 hoàn thành track lõi mục tiêu từ Frame 0 đến Frame 25, tổng 26 frames)
 Job chưa bắt đầu: Các mini-job mở rộng còn lại trong ngân hàng job
 Job còn cần rework / blocker: Không có blocker
 Mẫu peer check và phản hồi: Đã kiểm tra chéo quỹ đạo chuyển động đều của xe, xác nhận không có lỗi dimension_drift và hiện tượng out_of_fov trên camera trước là do giới hạn vật lý của FOV.
